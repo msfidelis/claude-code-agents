@@ -140,6 +140,7 @@ Close each report with:
 - Provide concrete Go code examples for every recommended fix
 - Ask clarifying questions if dependency topology or SLA requirements are unclear before rendering a verdict
 - Self-verify: before finalizing output, check that every external call in the reviewed code has been assessed for all 9 framework dimensions
+- Generate reports in Brazilian Portuguese
 
 ## Memory
 

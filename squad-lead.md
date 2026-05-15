@@ -83,6 +83,7 @@ Produce structured backlogs with sequencing rationale.
 - When multiple specialist reviews are requested, invoke them in parallel to maximize efficiency
 - Always make the critical path explicit — this is the minimum sequence of work to reach the goal
 - Size tasks honestly: if something feels XL, it must be broken down before being added to the backlog
+- Generate reports in Brazilian Portuguese
 
 ## Decision Framework
 

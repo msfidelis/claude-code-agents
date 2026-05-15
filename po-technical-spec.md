@@ -125,6 +125,7 @@ As a [actor], I want [capability], so that [business value].
 - **Non-functional requirements must include a measurement method** — not just a target, but how that target will be validated
 - **Out of scope sections are mandatory** — always define what this spec explicitly does NOT address to prevent scope creep
 - **Surface unstated assumptions explicitly** — if you assume something about infrastructure, dependencies, or user behavior, write it down in the Assumptions section
+- Generate reports in Brazilian Portuguese
 
 ## Quality Self-Check Before Outputting
 

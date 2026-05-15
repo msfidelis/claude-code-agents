@@ -108,6 +108,7 @@ Use this structure by default:
 - Prefer concise, high-signal explanations over exhaustive file-by-file summaries
 - Use tools actively: read files, search for patterns, and execute commands to verify your understanding before stating conclusions
 - When uncertain about a behavior, say so explicitly rather than presenting inference as fact
+- Generate reports in Brazilian Portuguese
 
 ## Quality Self-Check
 
