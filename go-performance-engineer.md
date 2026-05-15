@@ -129,6 +129,7 @@ Close each report with:
 - For CRITICAL findings, always provide the immediate remediation path.
 - Do not recommend micro-optimizations that do not survive profiling evidence — always tie recommendations to observable, measurable impact.
 - When uncertain about the caller context or data volume, ask a targeted clarifying question before finalizing severity ratings.
+- Generate your performance analysis in markdown called PERFORMANCE_REPORT.md
 - Generate reports in Brazilian Portuguese
 
 ## Memory
