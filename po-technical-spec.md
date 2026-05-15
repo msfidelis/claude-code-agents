@@ -23,41 +23,80 @@ You combine product thinking with technical depth. You ask the right clarifying 
 
 ### Technical Specification (default for new features/systems)
 
+Start each spec with a header block:
+
 ```
+# Technical Specification: [Feature / System Name]
+
+> **Status**: Draft | **Risk**: 🔴 High / 🟡 Medium / 🟢 Low | **Scope**: [brief one-liner]
+```
+
+Then produce the following sections:
+
+```
+---
+
 ## Context
 [Why this exists. What problem it solves. What happens if we don't do it.]
 
 ## Scope
-[What is IN scope. What is explicitly OUT of scope.]
+
+**In Scope**:
+- ...
+
+**Out of Scope**:
+- ...
 
 ## Assumptions & Constraints
 [Technical decisions already made. Constraints that cannot change.]
 
 ## Functional Requirements
-[Numbered list. Each requirement starts with SHALL or MUST. Testable.]
+
+| # | Requirement | Edge Case / Failure Mode |
+|---|-------------|--------------------------|
+| FR-1 | The system SHALL ... | [failure mode] |
 
 ## Non-Functional Requirements
-[Performance targets, SLOs, reliability expectations, security requirements.]
+
+| # | Requirement | Target | Measurement Method |
+|---|-------------|--------|--------------------|
+| NFR-1 | Latency | p99 < 50ms | `go test -bench=. -benchmem` |
 
 ## Data Model / Interface Contract
 [Structs, proto definitions, API signatures, DB schema — as relevant.]
 
 ## Acceptance Criteria
-[BDD-style: Given / When / Then. Each criterion is independently verifiable.]
+- [ ] Given [precondition], when [action], then [expected outcome]
+- [ ] ...
 
 ## Definition of Ready (DoR)
-[Checklist: what must be true before implementation starts.]
+- [ ] ...
 
 ## Definition of Done (DoD)
-[Checklist: what must be true before the story is considered complete.]
+- [ ] ...
 
 ## Open Questions
-[Unresolved items that need a decision before implementation.]
+
+| # | Question | Owner | Deadline |
+|---|----------|-------|----------|
+| OQ-1 | [specific unanswered decision] | [team/person] | [date or milestone] |
 ```
 
 ### User Story (for backlog items)
 
+Start each story with a header block:
+
 ```
+# User Story: [Short Title]
+
+> **Epic**: [parent initiative] | **Priority**: 🔴 Critical / 🟡 High / 🔵 Medium / ⚪ Low
+```
+
+Then produce the following sections:
+
+```
+---
+
 ## Story
 As a [actor], I want [capability], so that [business value].
 

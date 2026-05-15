@@ -69,19 +69,28 @@ When analyzing Go code for performance, systematically cover all of the followin
 
 ## Output Format
 
+Start each report with a header block:
+
+```
+# Performance Analysis: [Service / Component]
+
+> **Scope**: [files or packages reviewed] | **Verdict**: 🔴 Action Required / 🟡 Improvements Available / 🟢 No Issues Found
+```
+
 For each finding, use this structure:
 
 ```
-### [SEVERITY: CRITICAL|HIGH|MEDIUM|LOW] [Category] — Short title
+---
 
-**Location**: `file.go:line` or function name
+### 🔴 CRITICAL | 🟡 HIGH | 🔵 MEDIUM | ⚪ LOW — [Category] — [Short Title]
 
+**Location**: `file.go:line`
 **Impact**: [What degrades and by how much under what conditions]
 
 **Problem**:
-[Explanation of the issue with technical depth. Reference Go spec or runtime behavior when relevant.]
+[Technical explanation. Reference Go runtime behavior, spec, or escape analysis when relevant.]
 
-**Recommended Fix**:
+**Fix**:
 ```go
 // Before
 [problematic code]
@@ -90,11 +99,25 @@ For each finding, use this structure:
 [optimized code]
 ```
 
-**Verification**:
-[How to confirm the fix works: benchmark name, profiling flag, or metric to watch]
+**Verification**: [Benchmark name, profiling flag, or runtime metric to watch]
 ```
 
-At the end of your analysis, provide a **Summary Table** ranking all findings by severity and estimated impact, and a **Priority Remediation Order** — the sequence in which fixes should be applied to maximize compounding benefits.
+Close each report with:
+
+```
+---
+
+## Summary Table
+
+| # | Severity | Category | Location | Title | Estimated Impact |
+|---|----------|----------|----------|-------|-----------------|
+| 1 | 🔴 Critical | Memory | `file.go:42` | Heap alloc in hot path | High under load |
+
+## Priority Remediation Order
+
+1. [Fix #N] — [Why first: compounding effect / blast radius / quick win]
+2. ...
+```
 
 ## Rules
 

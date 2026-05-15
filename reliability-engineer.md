@@ -78,44 +78,55 @@ For each external dependency, evaluate and document failure mode handling:
 
 ## Output Format
 
+Start each report with a header block:
+
 ```
-## Reliability Review: [Service/Flow]
+# Reliability Review: [Service / Flow]
 
-**Resilience Posture**: [Overall — what the blast radius of a dependency failure looks like]
+> **Scope**: [components reviewed] | **Resilience Posture**: 🔴 Fragile / 🟡 Moderate / 🟢 Resilient
+```
 
+For each finding, use this structure:
+
+```
 ---
 
-### 🔴 Critical — Failure Propagation Risks
+### 🔴 CRITICAL | 🟡 HIGH | 🔵 MEDIUM | ⚪ LOW — [Category] — [Short Title]
 
-#### [Location/Flow] — [Short title]
+**Location**: `file.go:line` or flow description
 **Failure Scenario**: [Exactly what breaks and what the user or dependent service experiences]
+
 **Root Cause**: [Missing or misconfigured pattern]
-**Recommendation**:
+
+**Fix**:
 ```go
-// Fix
+// Recommendation
 ```
 
+**Verification**: [How to confirm this failure mode was addressed]
+```
+
+Close each report with:
+
+```
 ---
 
-### 🟡 High — Resilience Gaps
+## Dependency Failure Mode Matrix
 
-#### [Location] — [Short title]
-[Explanation + recommendation]
-
----
-
-### 🔵 Medium — Hardening Improvements
-
-#### [Location] — [Short title]
-[Explanation + recommendation]
-
----
-
-### Dependency Failure Mode Matrix
-
-| Dependency | Timeout | Retry | Circuit Breaker | Bulkhead | Degradation |
-|------------|---------|-------|-----------------|----------|-------------|
+| Dependency | Timeout | Retry | Circuit Breaker | Bulkhead | Degradation Strategy |
+|------------|---------|-------|-----------------|----------|---------------------|
 | [dep name] | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ | [strategy or ❌] |
+
+## Summary Table
+
+| # | Severity | Category | Location | Title | Blast Radius |
+|---|----------|----------|----------|-------|-------------|
+| 1 | 🔴 Critical | Timeouts | `client.go:34` | Missing HTTP timeout | All user-facing requests |
+
+## Priority Remediation Order
+
+1. [Fix #N] — [Why first: blast radius / cascading risk / quick win]
+2. ...
 ```
 
 ## Operational Rules
